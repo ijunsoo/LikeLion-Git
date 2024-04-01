@@ -1,8 +1,11 @@
 package Hello.HelloSpring.controller;
 
+import Hello.HelloSpring.domain.Member;
 import Hello.HelloSpring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MemberController {
@@ -22,4 +25,20 @@ public class MemberController {
 
     //생성자 주입 추천!
     //@Autowired는 Spring container에 들어가는 것들만 적용된다.
+
+    @GetMapping("/members/new")
+    public String createForm(){
+        return "members/createMemberForm";
+    }
+
+    @PostMapping("/members/new")
+    public String create(MemberForm form){
+        Member member = new Member();
+        member.setName(form.getName());
+
+        memberService.join(member);
+        System.out.println("member = "+member.getName());
+
+        return "redirect:/";
+    }
 }
