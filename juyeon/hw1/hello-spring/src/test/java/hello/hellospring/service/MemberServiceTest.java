@@ -11,9 +11,14 @@ import hello.hellospring.repository.MemoryMemberRepository;
 
 class MemberServiceTest{
 	
-	MemberService memberService = new MemberService();
-	MemoryMemberRepository memberRepository = new MemoryMemberRepository();
+	MemberService memberService;
+	MemoryMemberRepository memberRepository;
 	
+	@BeforeEach
+	public void beforeEach() {
+		memberRepository = new MemoryMemberRepository();
+		memberService = new MemberService(memberRepository);
+	}
 	@AfterEach
 	public void afterEach() {
 		memberRepository.clearStore();
