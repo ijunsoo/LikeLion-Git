@@ -1,5 +1,7 @@
 package hello.hellospring.domain;
 
+import jakarta.persistence.*;
+
 public class Member {
     
     private Long id;
