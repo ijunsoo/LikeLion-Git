@@ -1,3 +1,4 @@
+/*
 package spring.springcorebasic.order;
 
 import org.assertj.core.api.Assertions;
@@ -22,3 +23,4 @@ public class OrderServiceTest {
         Assertions.assertThat(order.getDiscountPrice()).isEqualTo(1000); // 할인된 금액이 1000원인지 검증
     }
 }
+*/

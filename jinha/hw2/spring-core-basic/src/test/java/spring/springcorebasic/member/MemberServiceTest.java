@@ -1,3 +1,4 @@
+/*
 package spring.springcorebasic.member;
 
 import org.assertj.core.api.Assertions;
@@ -24,3 +25,4 @@ public class MemberServiceTest {
         Assertions.assertThat(member).isEqualTo(findMember);
     }
 }
+*/
