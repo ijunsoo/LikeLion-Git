@@ -2,6 +2,7 @@ package spring.springcorebasic;
 
 import spring.springcorebasic.discount.DiscountPolicy;
 import spring.springcorebasic.discount.FixDiscountPolicy;
+import spring.springcorebasic.discount.RateDiscountPolicy;
 import spring.springcorebasic.member.*;
 import spring.springcorebasic.order.OrderService;
 import spring.springcorebasic.order.OrderServiceImpl;
