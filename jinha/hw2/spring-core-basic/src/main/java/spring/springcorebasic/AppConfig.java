@@ -16,6 +16,7 @@ import spring.springcorebasic.order.OrderServiceImpl;
 // 설계 변경으로 MemberServiceImpl은 MemoryRepository를 직접 의존하지 않고, 단지 MemberRepository만 의존한다.
 // AppConfig처럼 객체를 생성하고 관리하면서 의존관계를 연결해주는 것을 IoC 컨테이너 혹은 DI 컨테이너라고 한다.
 @Configuration
+
 public class AppConfig {
     /*
     public MemberService memberService(){
