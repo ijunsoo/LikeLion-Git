@@ -2,6 +2,7 @@ package spring.springcorebasic.member;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import spring.springcorebasic.order.AppConfig;
 
 public class MemberServiceTest {
 
