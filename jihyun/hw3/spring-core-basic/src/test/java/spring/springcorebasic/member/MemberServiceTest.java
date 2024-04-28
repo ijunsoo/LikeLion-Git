@@ -2,10 +2,16 @@ package spring.springcorebasic.member;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import spring.springcorebasic.AppConfig;
 
 public class MemberServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
+    ApplicationContext applicationContext =new
+            AnnotationConfigApplicationContext(AppConfig.class);
+    MemberService memberService =
+            applicationContext.getBean("memberService", MemberService.class);
 
     // Test Case를 쉽게 작성하기 위한 로직 given-when-then
     @Test
