@@ -1,5 +1,6 @@
 package spring.springcorebasic.order;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import spring.springcorebasic.discount.DiscountPolicy;
@@ -7,6 +8,9 @@ import spring.springcorebasic.member.Member;
 import spring.springcorebasic.member.MemberRepository;
 
 @Component
+@RequiredArgsConstructor
+// 이 어노테이션과 생성자 둘 다 사용할 수는 없다.
+// @RequiredArgsConstructor 어노테이션이 생성자를 만들어주기 때문이다.
 public class OrderServiceImpl implements OrderService{
 
     /*
@@ -20,12 +24,6 @@ public class OrderServiceImpl implements OrderService{
 
     // 회원의 등급을 확인하기 위함 => 할인정책 적용을 위해
     private final MemberRepository memberRepository;
-
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.discountPolicy = discountPolicy;
-        this.memberRepository = memberRepository;
-    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
