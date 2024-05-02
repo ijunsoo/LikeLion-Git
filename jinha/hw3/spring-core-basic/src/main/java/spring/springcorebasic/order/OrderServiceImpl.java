@@ -8,7 +8,7 @@ import spring.springcorebasic.member.Member;
 import spring.springcorebasic.member.MemberRepository;
 
 @Component
-@RequiredArgsConstructor
+/*@RequiredArgsConstructor*/
 // 이 어노테이션과 생성자 둘 다 사용할 수는 없다.
 // @RequiredArgsConstructor 어노테이션이 생성자를 만들어주기 때문이다.
 public class OrderServiceImpl implements OrderService{
@@ -20,10 +20,19 @@ public class OrderServiceImpl implements OrderService{
     */
 
     //아래는 DIP를 충족하기 위한 변경된 코드이다.
+    private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
     // 회원의 등급을 확인하기 위함 => 할인정책 적용을 위해
-    private final MemberRepository memberRepository;
+
+
+
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
