@@ -13,8 +13,8 @@ import spring.springcorebasic.member.MemoryMemberRepository;
 public class OrderServiceImpl implements OrderService{
 
     // 회원의 등급을 확인하기 위함 => 할인정책 적용을 위해
-    private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;
+    private MemberRepository memberRepository;
+    private DiscountPolicy discountPolicy;
 
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
@@ -29,5 +29,15 @@ public class OrderServiceImpl implements OrderService{
 
         return new Order(memberId, itemName, itemPrice, discountPrice); // 주문을 생성하여 반환
 
+    }
+    @Autowired
+    public void setMemberRepository (MemberRepository memberRepository) {
+        System.out.println("memberRepository=" + memberRepository);
+        this.memberRepository =memberRepository;
+    }
+    @Autowired
+    public void setDiscountPolicy (DiscountPolicy discountPolicy) {
+        System.out.println("discountPolicy="+ discountPolicy);
+        this.discountPolicy =discountPolicy;
     }
 }
