@@ -1,5 +1,6 @@
-package com.homepage.likelion.test;
+package com.homepage.likelion.test.tmp.controller;
 
+import com.homepage.likelion.test.tmp.dto.SimpleDto;
 import com.homepage.likelion.utill.response.CustomApiResponse;
 import lombok.Builder;
 import org.springframework.http.HttpStatus;
